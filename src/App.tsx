@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Accordion from "./components/Accordion/Accordion";
+import {Accordion} from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
             <PageTitle title={'This is APP component'}/>
             <PageTitle title={'APP component'}/>
             <Rating value={0}/>
-            <Accordion titleValue={'Menu'} collapsed={false}/>
+            <Accordion titleValue={'Menu'} collapsed={true}/>
             <Accordion titleValue={'User'} collapsed={false}/>
             <Rating value={5}/>
             <Rating value={4}/>
