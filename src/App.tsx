@@ -6,9 +6,9 @@ import {Rating} from "./components/Rating/Rating";
 const App = () => {
     return (
         <div>
-            <PageTitle title={'This is APP component'}/>
-            <PageTitle title={'APP component'}/>
-            <Rating value={0}/>
+            {/*<PageTitle title={'This is APP component'}/>*/}
+            {/*<PageTitle title={'APP component'}/>*/}
+            {/*<Rating value={0}/>*/}
             <Accordion titleValue={'Menu'} collapsed={true}/>
             <Accordion titleValue={'User'} collapsed={false}/>
             <Rating value={5}/>

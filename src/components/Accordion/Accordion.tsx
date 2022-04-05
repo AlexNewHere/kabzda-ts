@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 
 type AccordionPropsType = {
@@ -6,10 +6,9 @@ type AccordionPropsType = {
     collapsed: boolean
 }
 export const Accordion = (props: AccordionPropsType) => {
-    console.log('Accordion')
     return (<>
         <AccordionTitle title={props.titleValue}/>
-        <AccordionBody collapsedBody={props.collapsed}/>
+        {!props.collapsed && <AccordionBody/>}
     </>)
 }
 
@@ -18,23 +17,14 @@ type AccordionTitlePropsType = {
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
-    console.log('AccordionTitle')
     return <h3>{props.title}</h3>
 }
 
-type AccordionBodyPropsType = {
-    collapsedBody: boolean
-}
-
-function AccordionBody(props: AccordionBodyPropsType) {
-    console.log('AccordionBody')
-    if (props.collapsedBody) {
-        return (<ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul>)
-    }
-    else return <div> </div>
+function AccordionBody() {
+    return (<ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>)
 }
 
