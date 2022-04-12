@@ -21,7 +21,7 @@ type StarPropsType = {
     selected: boolean
 }
 const Star = (props: StarPropsType) => {
-    const res = props.selected === true ?
+    const res = (props.selected) ?
         <span><b>star </b></span>
         : <span>star </span>;
     return res
