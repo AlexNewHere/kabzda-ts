@@ -52,5 +52,4 @@ export const OnOff = ( ) => {
             <div style={indicatorStyle}/>
         </div>
     )
-
 }

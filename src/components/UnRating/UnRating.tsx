@@ -8,21 +8,20 @@ export const UnRating = () => {
     const onClick = (on: number) => {
         return () => setRating(on)
     }
-    const ifOn = (): number => {
-        return (rating === 1) ? 0 : 1;
-    }
+    const ifOn = (a: number): number => (rating === a) ? 0 : a
 
     const onStyle: CSSProperties = {
         display: 'inline-block',
         cursor: 'pointer',
         marginLeft: '10px'
     }
+
     return (<div>
-            <div style={onStyle} onClick={onClick(ifOn())}><Star selected={rating > 0}/></div>
-            <div style={onStyle} onClick={onClick(2)}><Star selected={rating > 1}/></div>
-            <div style={onStyle} onClick={onClick(3)}><Star selected={rating > 2}/></div>
-            <div style={onStyle} onClick={onClick(4)}><Star selected={rating > 3}/></div>
-            <div style={onStyle} onClick={onClick(5)}><Star selected={rating > 4}/></div>
+            <div style={onStyle} onClick={onClick(ifOn(1))}><Star selected={rating > 0}/></div>
+            <div style={onStyle} onClick={onClick(ifOn(2))}><Star selected={rating > 1}/></div>
+            <div style={onStyle} onClick={onClick(ifOn(3))}><Star selected={rating > 2}/></div>
+            <div style={onStyle} onClick={onClick(ifOn(4))}><Star selected={rating > 3}/></div>
+            <div style={onStyle} onClick={onClick(ifOn(5))}><Star selected={rating > 4}/></div>
         </div>
     )
 
@@ -32,9 +31,10 @@ type StarPropsType = {
     selected: boolean
 }
 const Star = (props: StarPropsType) => {
-    const res = (props.selected) ?
+
+    return (props.selected) ?
         <span><b>star </b></span>
         : <span>star </span>;
-    return res
+
 
 }
