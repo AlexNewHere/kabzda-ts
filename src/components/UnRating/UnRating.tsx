@@ -32,7 +32,7 @@ type StarPropsType = {
 }
 const Star = (props: StarPropsType) => {
 
-    return (props.selected) ?
+    return props.selected ?
         <span><b>star </b></span>
         : <span>star </span>;
 
