@@ -1,12 +1,9 @@
 import React, {CSSProperties, useState} from 'react';
 
-
 type OnOffType = {
     on: boolean,
     setOn: (value: boolean) => void
 }
-
-
 
 export const OnOff: React.FC<OnOffType> = (props: OnOffType) => {
 
@@ -44,11 +41,18 @@ export const OnOff: React.FC<OnOffType> = (props: OnOffType) => {
         marginLeft: '5px'
     }
 
+    const onClick = () => {
+        props.setOn(true)
+    }
+
+    const offClick = () => {
+        props.setOn(false)
+    }
 
     return (
         <div>
-            <div style={onStyle} onClick={()=>props.setOn(true)}>On</div>
-            <div style={offStyle} onClick={()=>props.setOn(false)}>Off</div>
+            <div style={onStyle} onClick={onClick}>On</div>
+            <div style={offStyle} onClick={offClick}>Off</div>
             <div style={indicatorStyle}/>
         </div>
     )

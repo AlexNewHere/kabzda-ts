@@ -27,6 +27,7 @@ type StarPropsType = {
     value: RatingValueType
     onClick: (value: RatingValueType) => void
 }
+
 const Star = (props: StarPropsType) => {
 
     const onStyle: CSSProperties = {
@@ -35,7 +36,11 @@ const Star = (props: StarPropsType) => {
         marginLeft: '10px'
     }
 
-    return <div style={onStyle} onClick={()=>props.onClick(props.value)}>
+const onClick = () => {
+    props.onClick(props.value)
+    }
+
+    return <div style={onStyle} onClick={onClick}>
 
         {props.selected ? <b>star </b> : 'star'} </div>;
 
