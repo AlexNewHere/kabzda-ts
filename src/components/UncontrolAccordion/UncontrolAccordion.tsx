@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {CSSProperties, useState} from 'react';
 
 type AccordionPropsType = {
     titleValue: string
@@ -14,8 +14,6 @@ export const UnControlAccordion = (props: AccordionPropsType) => {
 
   let [onAccordion, setAccordion] = useState<boolean>(false);
 
-console.log(onAccordion)
-
   const onAccord = (onAccordion: boolean) => {
         setAccordion(onAccordion)
     }
@@ -27,7 +25,7 @@ console.log(onAccordion)
 
 function AccordionTitle(props: AccordionTitlePropsType) {
 
-    const onStyle = {
+    const onStyle: CSSProperties = {
         width: 'min-content',
         cursor: 'pointer'
     }
