@@ -1,10 +1,14 @@
+import React from 'react';
 import {CSSProperties, useState} from 'react';
 
+export type UnOnOffType = {
+    defaultOn?: boolean;
+}
 
 
-export const UnOnOff = ( ) => {
+export const UnOnOff: React.FC<UnOnOffType> = (props) => {
 
-    let [on, setOn]=useState<boolean>(false)
+    let [on, setOn]=useState<boolean>(props.defaultOn || false);
 
 
     const onStyle: CSSProperties = {

@@ -36,12 +36,14 @@ const Star = (props: StarPropsType) => {
         marginLeft: '10px'
     }
 
-const onClick = () => {
-    props.onClick(props.value)
+    const onClick = () => {
+       props.onClick(props.value)
     }
+
+
 
     return <div style={onStyle} onClick={onClick}>
 
-        {props.selected ? <b>star </b> : 'star'} </div>;
-
+        {props.selected ? <b>star </b> : 'star'}
+    </div>;
 }
