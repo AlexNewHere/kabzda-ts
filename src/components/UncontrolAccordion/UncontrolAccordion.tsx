@@ -1,4 +1,5 @@
-import React, {CSSProperties, useState} from 'react';
+import React, {CSSProperties, useReducer} from 'react';
+import {AccordionActionCreater, ActionType, reducer, StateType} from './Reducer';
 
 type AccordionPropsType = {
     titleValue: string
@@ -6,20 +7,22 @@ type AccordionPropsType = {
 
 type AccordionTitlePropsType = {
     title: string
-    onAccord: (onOff: boolean) => void
-    ifElseOn: boolean
+    onAccord: (action: ActionType) => void
+    ifElseOn: StateType
 }
+
 
 export const UnControlAccordion = (props: AccordionPropsType) => {
 
-  let [onAccordion, setAccordion] = useState<boolean>(false);
+    // let [onAccordion, setAccordion] = useState<boolean>(false);
+    let [onAccordion, dispatch] = useReducer(reducer, {isCollapsed: false});
 
-  const onAccord = (onAccordion: boolean) => {
-        setAccordion(onAccordion)
+    const onAccord = (action: ActionType) => {
+        dispatch(action)
     }
     return (<>
         <AccordionTitle title={props.titleValue} onAccord={onAccord} ifElseOn={onAccordion}/>
-        {onAccordion && <AccordionBody/>}
+        {!!onAccordion.isCollapsed && <AccordionBody/>}
     </>)
 }
 
@@ -30,14 +33,14 @@ function AccordionTitle(props: AccordionTitlePropsType) {
         cursor: 'pointer'
     }
 
-    const onAccordClick = (a: boolean) => {
-       return ()=>props.onAccord(a)
+    const onAccordClick = (a: ActionType) => {
+        return () => props.onAccord(a)
     }
 
     return (
-    <div style={onStyle} onClick={onAccordClick(!props.ifElseOn)}>
-        <h3>{props.title}</h3>
-    </div>
+        <div style={onStyle} onClick={onAccordClick(AccordionActionCreater())}>
+            <h3>{props.title}</h3>
+        </div>
     )
 }
 
