@@ -1,6 +1,5 @@
 import React, {ChangeEvent, useRef, useState} from 'react';
 
-
 export default {
     title: 'Example/Input',
     // component: input
@@ -76,11 +75,5 @@ export const ControlledSelect = () => {
     </>
 }
 
-
-// export const Primary = Template.bind({});
-// Primary.args = {
-//   primary: true,
-//   label: 'Button',
-// };
 
 
