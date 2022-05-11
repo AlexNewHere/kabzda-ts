@@ -5,16 +5,19 @@ export type StateType = {
     isCollapsed: boolean
 }
 
-
-const TOGGLE_COLLPSED = 'TOGGLE-COLLAPSED';
-export const AccordionActionCreater = (): ActionType => ({type: TOGGLE_COLLPSED})
-
-export const reducer = (state: StateType, action: ActionType): StateType => {
+export const reducer = (state: StateType, action: AccordionACType): StateType => {
     switch (action.type) {
         case 'TOGGLE-COLLAPSED':
             return {...state, isCollapsed: !state.isCollapsed}
         default:
             throw new Error('Unknown action')
     }
+}
 
+type AccordionACType = ReturnType<typeof AccordionActionCreater>
+
+export const AccordionActionCreater = (): ActionType => {
+    return {
+        type: 'TOGGLE-COLLAPSED'
+    } as const
 }

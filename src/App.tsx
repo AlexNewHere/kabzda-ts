@@ -27,11 +27,11 @@ const App = () => {
             {/*<UnRating />*/}
             {/*<Accordion titleValue={'Menu'} collapsed={true}/>*/}
 
-            <Accordion
+            {/*<Accordion*/}
 
-                titleValue={'User'}
-                       collapsed={accordion}
-                       setAccordion={()=>setAccordion(!accordion)}/>
+            {/*    titleValue={'User'}*/}
+            {/*           collapsed={accordion}*/}
+            {/*           setAccordion={()=>setAccordion(!accordion)}/>*/}
 
             <Rating value={ratingValue} onClick={setRatingValue}/>
         </div>
