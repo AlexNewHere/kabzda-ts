@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 export default {
     title: 'useState ',
@@ -8,7 +8,6 @@ function genereateRandomNumber() {
     console.log('genereateRandomNumber');
     return Math.floor(Math.random() * 10);
 }
-
 
 
 export const Example = () => {
@@ -33,3 +32,5 @@ export const Example = () => {
 
     </>
 }
+
+

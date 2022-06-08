@@ -4,7 +4,6 @@ export default {
     title: 'useEffect ',
 }
 
-
 export const Example = () => {
     console.log('Example render')
 
@@ -47,12 +46,53 @@ export const SetTimeoutExample = () => {
 
     }, [])
 
-
     return <>
 
         <button onClick={() => setCount(count + 1)}>+</button>
         <div>{count}</div>
-
-
     </>
+}
+
+export const ReseEffectExample = ()=> {
+
+    const [counter, setCounter] = React.useState(1);
+
+    useEffect(()=>{
+        console.log('effect '+counter)
+        return ()=> {
+            console.log('reset '+counter)
+        }
+    }, [counter])
+
+    const increase = ()=>{setCounter(counter+1)}
+
+    return <>
+        Hello counter {counter} <button onClick={increase}>+</button>
+    </>
+
+}
+
+export const KeysTrackerExample = ()=> {
+
+    const [text, setText] = React.useState('');
+
+    useEffect(()=>{
+
+        const handkler= (e: KeyboardEvent)=>{
+            console.log(e.key)
+            setText(text+e.key)
+        }
+        window.document.addEventListener('keypress', handkler)
+
+        return ()=> {
+            window.document.removeEventListener('keypress', handkler)
+        }
+    }, [text])
+
+
+
+    return <>
+        Type {text}
+    </>
+
 }
